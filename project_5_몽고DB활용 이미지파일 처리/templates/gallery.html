@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>이미지 갤러리</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>이미지 갤러리</h1>
+      <div class="gallery">
+        {% for image in images %}
+        <div class="image-container">
+          <a href="{{ url_for('get_image', file_id=image.id) }}" target="_blank">
+            <img src="{{ url_for('get_image', file_id=image.id) }}" alt="{{ image.filename }}" class="thumbnail" />
+          </a>
+          <p>{{ image.filename }}</p>
+          <form action="{{ url_for('delete_image', file_id=image.id) }}" method="post">
+            <button type="submit" class="delete-btn">삭제</button>
+          </form>
+        </div>
+        {% endfor %}
+      </div>
+      <a href="{{ url_for('index') }}" class="upload-link">업로드 페이지로 이동</a>
+    </div>
+  </body>
+</html>

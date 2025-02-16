@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>이미지 업로드</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>이미지 업로드</h1>
+      <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required />
+        <button type="submit">업로드</button>
+      </form>
+      <a href="{{ url_for('gallery') }}" class="gallery-link">갤러리 보기</a>
+    </div>
+  </body>
+</html>
