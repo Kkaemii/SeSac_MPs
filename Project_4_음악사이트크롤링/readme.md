@@ -34,4 +34,4 @@
 - 지니뮤직 TOP 100 CSV
 - 벅스 TOP 100 CSV
 - 통합 차트 CSV
-  ![Top100_출력결과.png](attachment:Top100_출력결과.png)
+  ![Top100_출력결과.png](./Top100_출력결과.png)
