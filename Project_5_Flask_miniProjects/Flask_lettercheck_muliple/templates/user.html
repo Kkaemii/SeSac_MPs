@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% if username|length%2 == 0%}
+    <p>{{username.upper()}}님 환영합니다.</p>
+    {% else %}
+    <p>{{username.lower()}}님 환영합니다.</p>
+    {%endif%}
+    <a href="/">처음화면으로 돌아가기</a>
+  </body>
+</html>

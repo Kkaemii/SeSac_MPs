@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <h2>문의가 완료되었습니다.</h2>
+    <br />
+    <span>문의 내용 : {{description}}</span>
+    {%with messages =get_flashed_messages()%} {%if messages %} {%for message in messages%}
+    <div>{{message}}</div>
+    {%endfor%} {%endif%} {%endwith%}
+    <br /><br />
+    <a href="/"> 문의 화면으로 돌아가기 </a>
+  </body>
+</html>

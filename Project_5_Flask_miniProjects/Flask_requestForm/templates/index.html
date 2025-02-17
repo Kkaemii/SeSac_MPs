@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문의폼</title>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <h2>문의 폼</h2>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li class="flash">{{ message }}</li>
+      {%endfor%}
+    </ul>
+    {%endif%} {%endwith%}
+    <form action="{{url_for('contact_save')}}" , method="POST">
+      <table>
+        <tr>
+          <td>사용자 명</td>
+          <td>
+            <input type="text" name="username" value="{{username}}" , placeholder="사용자명" />
+          </td>
+        </tr>
+        <tr>
+          <td>메일 주소</td>
+          <td>
+            <input type="text" name="mail" value="{{mail}}" , placeholder="문의내용" />
+          </td>
+        </tr>
+        <tr>
+          <td>문의 내용</td>
+          <td>
+            <textarea name="description" placeholder="문의내용" minlength="10">{{description}}</textarea>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" value="제출" method="POST" />
+    </form>
+  </body>
+</html>
