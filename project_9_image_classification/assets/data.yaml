@@ -1,0 +1,6 @@
+train: C:\Users\user\Desktop\SeSac_MPs\project_9_image_classification\assets\train
+val: C:\Users\user\Desktop\SeSac_MPs\project_9_image_classification\assets\valid
+test: C:\Users\user\Desktop\SeSac_MPs\project_9_image_classification\assets\test
+
+nc: 6
+names: ['carboard', 'glass', 'metal', 'paper', 'plastic', 'vinyl']
