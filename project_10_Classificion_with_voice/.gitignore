@@ -1,1 +1,7 @@
 *.wav
+model.safetensors
+logs
+*.zip
+results
+saved_model
+*.back
