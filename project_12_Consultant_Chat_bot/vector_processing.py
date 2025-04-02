@@ -22,7 +22,7 @@ def load_jsonl(file_path):
     return data
 
 
-# 문서 처리 함수 (singleton/multiturn 구분)
+# 문서 처리 함수 (singleturn/multiturn 구분)
 def process_data(data, data_type):
     documents = []
     for item in data:
@@ -30,7 +30,7 @@ def process_data(data, data_type):
             documents.append(
                 Document(
                     page_content=f"질문: {item['input']}\n답변: {item['output']}",
-                    metadata={"type": "singleton", "role": "상담사"},
+                    metadata={"type": "singleturn", "role": "상담사"},
                 )
             )
         elif data_type == "multiturn":
@@ -53,13 +53,13 @@ def create_vectorstore(documents) -> FAISS:
 # 메인 처리 함수
 def main():
     # 데이터 로드
-    singleton_data = load_jsonl("./total_kor_counsel_bot.jsonl")
+    singleturn_data = load_jsonl("./total_kor_counsel_bot.jsonl")
     multiturn_data = load_jsonl("./total_kor_multiturn_counsel_bot.jsonl")
 
     # 문서 생성
-    singleton_docs = process_data(singleton_data, "singleton")
+    singleturn_docs = process_data(singleturn_data, "singleturn")
     multiturn_docs = process_data(multiturn_data, "multiturn")
-    all_docs = singleton_docs + multiturn_docs
+    all_docs = singleturn_docs + multiturn_docs
 
     # 벡터 저장소 생성 및 저장
     vectorstore = create_vectorstore(all_docs)
